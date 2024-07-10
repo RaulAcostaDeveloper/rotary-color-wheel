@@ -13,12 +13,14 @@ import { motion, useAnimationFrame } from 'framer-motion';
 export const MyComponent = () => {
     const wheelRef = useRef(null);
     const [rotation, setRotation] = useState(0);
+    const [velocity, setVelocity] = useState(0);
 
     // @ts-ignore
     const handleWheel = (event) => {
         event.preventDefault();
-        const newRotation = rotation + event.deltaY * 0.1; // Ajusta el factor de multiplicación según sea necesario
-        setRotation(newRotation);
+        // Ajusta el factor de multiplicación según sea necesario
+        const newVelocity = velocity + event.deltaY * 0.12;
+        setVelocity(newVelocity);
     };
 
     useEffect(() => {
@@ -30,7 +32,17 @@ export const MyComponent = () => {
             // @ts-ignore
             wheel.removeEventListener('wheel', handleWheel);
         };
-    }, [rotation]);
+    }, [velocity]);
+
+    useAnimationFrame((time, delta) => {
+        if (Math.abs(velocity) < 0.1) {
+            setVelocity(0);
+            return;
+        }
+        const newRotation = rotation + velocity * (delta / 750); // Ajuste de delta para 60 FPS (1000ms / 60 = 16.67ms)
+        setRotation(newRotation);
+        setVelocity(prev => prev * 0.96); // Reducir la velocidad gradualmente para simular inercia
+    });
 
     useEffect(() => {
         if (wheelRef.current) {
