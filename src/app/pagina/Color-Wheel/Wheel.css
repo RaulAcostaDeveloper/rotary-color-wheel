@@ -7,7 +7,13 @@
 .container-colour-picked-wheel {
     /* Please use this to control the size of the wheel (this is all you need to change)*/
     /* It is needed as a CSS variable */
-    --size-picked-wheel: 320px;
+    --size-picked-wheel: 768px;
+    /* You are able to create media querys for controling wheel sizes */
+
+    /* You can uncoment this shadow to see the size of the box */
+    /* -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75); */
 }
 
 .colour-picked-wheel {
@@ -42,13 +48,11 @@
     /* You are able to change it to 0.1, 0.11, etc. */
     font-size: calc(var(--radius-picked-wheel) * 0.12);
     text-align: center;
+    user-select: none;
 }
 
 /* Not able to change */
 .container-colour-picked-wheel {
-    -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
     /* Please do not change behavior */
     /* There is a ghost space for rotation element (all elements are boxes) */
     /* So radius can't be 50% but 32% to not to push the screen */
