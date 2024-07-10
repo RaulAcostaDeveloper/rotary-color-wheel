@@ -1,0 +1,106 @@
+/* CSS circle behavior */
+/* Is needed to use this code in CSS because behavior can't be replied in tailwind CSS */
+/* CSS is a complete language but Tailwind is just for basic styles */
+/* Please use this CSS file for controling behavior in the component */
+
+/* Able to change */
+.container-colour-picked-wheel {
+    /* Please use this to control the size of the wheel (this is all you need to change)*/
+    /* It is needed as a CSS variable */
+    --size-picked-wheel: 768px;
+}
+
+.colour-picked-wheel {
+    flex-shrink: 0;
+  position: relative;
+    /* This code divides the wheel into colors by the radius */
+    /* You can change colors from here */
+    background: conic-gradient(
+            /* First cone */
+            rgb(230, 26, 26) 0,
+            rgb(230, 26, 26) calc(360deg / 7),
+            /* Second cone */
+            rgb(255, 127, 0) calc(360deg / 7),
+            rgb(255, 127, 0) calc(360deg / 7 * 2),
+            /* Third cone */
+            rgb(255, 191, 0) calc(360deg / 7 * 2),
+            rgb(255, 191, 0) calc(360deg / 7 * 3),
+            /* Fourth cone */
+            rgb(191, 255, 0) calc(360deg / 7 * 3),
+            rgb(191, 255, 0) calc(360deg / 7 * 4),
+            /* Fifth cone */
+            rgb(0, 255, 191) calc(360deg / 7 * 4),
+            rgb(0, 255, 191) calc(360deg / 7 * 5),
+            /* Sixth cone */
+            rgb(38, 102, 204) calc(360deg / 7 * 5),
+            rgb(38, 102, 204) calc(360deg / 7 * 6),
+            /* Seventh cone */
+            rgb(178, 178, 255) calc(360deg / 7 * 6),
+            rgb(178, 178, 255) calc(360deg / 7 * 7));
+}
+
+.label {
+    /* Font size and width is better to be tied on the size of the element */
+    /* You are able to change it to 0.1, 0.11, etc. */
+    font-size: calc(var(--radius-picked-wheel) * 0.12);
+    text-align: center;
+}
+
+/* Not able to change */
+.container-colour-picked-wheel {
+    /* Please do not change behavior */
+    /* There is a ghost space for rotation element (all elements are boxes) */
+    /* So radius can't be 50% but 36% to not to push the screen */
+    --radius-picked-wheel: calc((var(--size-picked-wheel) / 100) * 36);
+}
+
+.container-colour-picked-wheel {
+    width: var(--size-picked-wheel);
+}
+
+.colour-picked-wheel {
+    /* Size is tied to the --radius-picked-wheel variable  */
+    width: calc(var(--radius-picked-wheel) * 2);
+    height: calc(var(--radius-picked-wheel) * 2);
+
+    /* Calc is 64.29deg */
+    transform: rotate(calc(90deg - 360deg / 7 * 0.5));
+}
+
+.label {
+    /* Initial point for position of the labels */
+    width: calc(var(--radius-picked-wheel) * 1.1);
+    position: absolute;
+    top: calc(50% - 0.5em);
+    left: 50%;
+    transform-origin: left center;
+}
+
+/* Label items are positioned by the number of items you have */
+.label--1 {
+    transform: rotate(calc(270deg + 360deg / 7 * 0.5));
+}
+
+.label--2 {
+    transform: rotate(calc(270deg + 360deg / 7 * 1.5));
+}
+
+.label--3 {
+    transform: rotate(calc(270deg + 360deg / 7 * 2.5));
+}
+
+.label--4 {
+    transform: rotate(calc(270deg + 360deg / 7 * 3.5));
+}
+
+.label--5 {
+    transform: rotate(calc(270deg + 360deg / 7 * 4.5));
+}
+
+.label--6 {
+    transform: rotate(calc(270deg + 360deg / 7 * 5.5));
+}
+
+.label--7 {
+    transform: rotate(calc(270deg + 360deg / 7 * 6.5));
+}
