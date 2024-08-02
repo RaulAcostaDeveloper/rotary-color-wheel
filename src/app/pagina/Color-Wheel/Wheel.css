@@ -7,13 +7,27 @@
 .container-colour-picked-wheel {
     /* Please use this to control the size of the wheel (this is all you need to change)*/
     /* It is needed as a CSS variable */
-    --size-picked-wheel: 768px;
+    --size-picked-wheel: 320px;
     /* You are able to create media querys for controling wheel sizes */
 
     /* You can uncoment this shadow to see the size of the box */
     /* -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
     box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75); */
+}
+
+@media (min-width: 768px) {
+    .container-colour-picked-wheel {
+        /* Please use this to control the size of the wheel (this is all you need to change)*/
+        /* It is needed as a CSS variable */
+        --size-picked-wheel: 768px;
+        /* You are able to create media querys for controling wheel sizes */
+    
+        /* You can uncoment this shadow to see the size of the box */
+        /* -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75); */
+    }
 }
 
 .colour-picked-wheel {

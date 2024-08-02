@@ -1,9 +1,11 @@
 import Image from "next/image";
+import { ContainerColorWeel } from "./pagina/Color-Wheel/ContainerColorWeel";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Please go to /pagina
+    <main className="">
+      <h1 className="w-full text-center font-bold">Color Wheel</h1>
+      <ContainerColorWeel/>
     </main>
   );
 }
