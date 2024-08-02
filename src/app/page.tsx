@@ -5,7 +5,9 @@ export default function Home() {
   return (
     <main className="">
       <h1 className="w-full text-center font-bold">Color Wheel</h1>
-      <ContainerColorWeel/>
+      <div className="w-full flex justify-center">
+        <ContainerColorWeel/>
+      </div>
     </main>
   );
 }
